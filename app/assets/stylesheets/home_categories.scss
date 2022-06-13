@@ -1,0 +1,92 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+$base-home-bg-color: #02DF8F;
+$border-dark: rgba($base-home-bg-color, 0.88);
+$base-font-color: #000;
+
+div.home-categories{
+   background: $base-home-bg-color;
+   color: $base-font-color;
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   padding: 2em 0 1em 1em !important;
+}
+
+.home-category-statement{
+   /* Find a BOBInear to you */
+   position: static;
+   width: 258px;
+   height: 288px;
+   left: 0px;
+   top: 0px;
+   /* Desktop/H1 */
+   font-family: Inter;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 64px;
+   line-height: 72px;
+   /* or 112% */
+   color: $base-font-color;
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+   margin: 0px 28px;
+}
+
+.home-category-list{
+   flex-direction: row;
+   align-items: flex-start;
+   padding: 0px;
+   position: relative;
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+}
+
+.category-row {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   padding: 0px;
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+   margin: 0 0 24px 0;
+}
+
+.category-card{
+   width: 264px;
+   height: 328px;
+   background-size: cover !important;
+   border-radius: 16px;
+   margin: 0 24px 0 0;
+   flex-basis: 33%;
+   position: relative;
+}
+
+.category-card-text{
+   position: absolute;
+   bottom: 1em;
+   left: .5em;
+   font-family: Inter;
+   font-style: normal;
+   font-weight: 600;
+   font-size: 24px;
+   line-height: 32px;
+   color: #FDFDFD;
+
+}

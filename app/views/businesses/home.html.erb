@@ -1,0 +1,21 @@
+<!-- <p style="color: green"><%= notice %></p> -->
+<div class="main container-fluid mb-5 noPadding">
+  <div class="teaser d-flex flex-column justify-content-center align-items-center">
+    <div class="box">
+            <%= image_tag("img.png", :alt => "Teaser Picture", class: "teaserPic") %>
+    </div>
+    <h1>Hello</h1>
+
+    <%= render partial: 'search_form' %>
+
+  </div>
+
+  <%= render "home_categories" %>
+  <%= render "home_statement" %>
+</div>
+
+<%= stylesheet_link_tag "home_categories" %>
+<%= stylesheet_link_tag "home_statement" %>
+
+<%= javascript_include_tag :carousel %>
+<%= javascript_include_tag :categories %>

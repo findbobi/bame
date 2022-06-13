@@ -1,0 +1,158 @@
+<div class="main container-md mb-5">
+  <div class="container">
+    <%= render :partial => 'search_form' %>
+  </div>
+
+  <div class="container cnontainer-body">
+    <div class="row content-row">
+      <% @businesses.each do |business| %>
+        <%= render business if business.present? %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    min-height: 100vh;
+  }
+
+  a {
+    color: #D3D3D3;
+  }
+
+  .body {
+    background-color:#FFDE2F;
+  }
+
+  .cnontainer-body{
+    font-family: 'Inter', sans-serif;
+    align-items: center;
+    justify-content: center;
+    background-color:#FFDE2F;
+  }
+
+  .social {
+    align-items: flex-start;
+  }
+
+  .social i:hover {
+    background-color:#232323;
+    color:#fff;
+    text-decoration:none;
+  }
+
+  .content-row>* {
+    display: contents;
+  }
+
+  .main {
+    margin-top: 50px;
+  }
+
+  .col-sm{
+    border: 1px solid black;
+    margin-top: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+  .card{
+    background-color: rgb(255, 255, 255);
+    border-radius: 05%;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .card img{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 50px;
+  }
+
+  .star{
+    color: gold;
+  }
+  .card-title i{
+    color: yellow;
+  }
+  .r-num{
+    color: black;
+    font-weight: 400;
+  }
+  .card-title{
+    margin-top: -10px;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .card-text{
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .icon{
+    margin-top: 15px;
+  }
+
+  .icon i{
+
+    font-size: 14px;
+    border: 1px solid rgb(197, 191, 191);
+    background-color: white;
+    margin: 3px;
+    padding: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    font-weight: 900;
+
+  }
+  .icon-1{
+    border: 1px solid rgb(255, 255, 255);
+    height: 30px;
+    align-items: flex-start;
+  }
+  .chip-b{
+    margin-top: 30px;
+    text-align: start;
+  }
+  .chip{
+    margin-top: 10px;
+    line-height: 20px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 5px;
+    justify-content: space-around;
+    height: 30px;
+    font-size: 13px;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    margin-left: 0px;
+    background-color: rgb(235, 235, 235);
+    font-weight: 500;
+  }
+
+  .c-1{
+    margin-top: 10px;
+    line-height: 20px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    justify-content: space-around;
+    height: 30px;
+    font-size: 14px;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    margin-left: 0px;
+    background-color: rgb(235, 235, 235);
+    font-weight: 500;
+
+  }
+</style>

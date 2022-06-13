@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= favicon_link_tag asset_path("favicon.png") %>
+
+    <title>Findbobi</title>
+  </head>
+
+  <body class="body">
+    <header>
+      <div class="headerContainer align-items-center container-md d-flex justify-content-between">
+        <div class="logoContainer ml-1">
+          <%= link_to root_path do %>
+            <%= image_tag("Logo_FINDBOBI.svg", :alt => "Logo", class: "logo") %>
+          <% end %>
+        </div>
+        <div class="navLinks d-flex">
+          <div class="navLink">
+            <%= link_to "Registration", new_business_path, class: "nav-link", id: "nav-link-reg" %>
+          </div>
+          <div class="navLink">
+            <%= link_to "Contact us", new_contact_request_path, class: "nav-link", id: "nav-link-contact" %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <div class="container-md">
+        <div class="row justify-content-center ">
+         <div class="col-md-3 mt-5">
+         <%= image_tag("Logo_FINDBOBI.svg", :alt => "Logo", class: "logoFooter") %>
+         </div>
+
+          <div class="col-md-3 mt-5">
+           <h3>Popular Searches</h3>
+           <ul>
+             <li><%= link_to "Dentists", businesses_path(what: "Dentists", tags: "Dentists"), class: "footer-link" %></li>
+             <li><%= link_to "Restaurants", businesses_path(what: "Restaurants", tags: "Restaurants"), class: "footer-link" %></li>
+             <li><%= link_to "Hairdresser", businesses_path(what: "Hairdresser", tags: "Hairdresser"), class: "footer-link" %></li>
+           </ul>
+          </div>
+          <div class="col-md-3 mt-5">
+           <h3>Popular Locations</h3>
+           <ul>
+             <li><%= link_to "Berlin", businesses_path(where: "Berlin", tags: "Berlin"), class: "footer-link" %></li>
+             <li><%= link_to "Hamburg", businesses_path(where: "Hamburg", tags: "Hamburg"), class: "footer-link" %></li>
+             <li><%= link_to "Cologne", businesses_path(where: "Cologne", tags: "Cologne"), class: "footer-link" %></li>
+           </ul>
+          </div>
+
+          <div class="col-md-3 mt-5">
+            <h3>About us</h3>
+            <ul>
+              <li><%= link_to "Who is BOBI", introduction_contact_requests_path, class: "footer-link" %></li>
+              <li><%= link_to "Contact us", new_contact_request_path, class: "footer-link" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style media="screen">
+
+body {
+  background-color: #02DF8F;
+  width: 100vw;
+  font-size: 100%;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #ffffff;
+  min-height: 80px;
+  width: 100vw;
+  font-weight: 500;
+  color: #385aef;
+  flex-grow: 0;
+}
+
+.nav-link {
+  color: #212121;
+}
+
+.footer-link {
+  color: #212121;
+  text-decoration: none !important;
+}
+
+.headerContainer {
+  height: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.logo {
+  width: 210px;
+  height: 35px;
+}
+
+header .active {
+  position: relative;
+}
+
+header .active::after {
+  transform: translateX(-50%);
+  border-radius: 100%;
+  position: absolute;
+  background: #212121;
+  bottom: 0px;
+  height: 6px;
+  content: "";
+  width: 6px;
+  left: 50%;
+}
+
+.registerHead {
+  font-size: 2.5rem;
+  color: black;
+  font-weight: 700;
+}
+
+.registerHead #bobiCrew {
+  width: 80%
+}
+
+.registerFormWrapper .form-control[type="text"],
+.form-control[type="email"] {
+  border-radius: 90px;
+  padding-left: 20px;
+}
+.registerFormWrapper .form-control[type="textarea"] {
+  border-radius: 90px;
+}
+
+.owner div:first-of-type {
+  margin-left: 30px;
+}
+
+.registerFormWrapper .radioBtn {
+  border-radius: 36px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 10px;
+}
+
+.registerFormWrapper #startHour {
+  border-top-left-radius: 90px;
+  border-bottom-left-radius: 90px;
+  padding-left: 20px;
+}
+
+.registerFormWrapper #closeHour {
+  border-bottom-right-radius: 90px;
+  border-top-right-radius: 90px;
+}
+
+.registerFormWrapper .form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #212121;
+}
+
+.registerFormWrapper label {
+  margin-left: 20px;
+}
+
+.registerForm {
+  margin-left: 30px;
+  margin-right: 50px;
+}
+
+.taggedInput {
+  position: relative;
+}
+
+.taggedInput #helpBox {
+  display: none;
+  font-size: 0.625rem;
+  padding: 10px;
+  background-color: #eeeeee;
+  border-radius: 20px;
+}
+
+.taggedInput input:focus ~ #helpBox {
+  display: block;
+}
+
+.submitBtn {
+  border-radius: 30px;
+  background-color: black;
+  border: none;
+}
+
+.submitBtn:hover{
+  background-color: lightgray;
+  color: black;
+
+}
+
+#fileUp {
+  display: none;
+}
+
+.customFileUpload {
+  cursor: pointer;
+}
+
+
+
+footer {
+  width: 100%;
+  color: black;
+  background-color: #ffffff;
+  flex-grow: 1;
+}
+
+footer h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+footer h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 15px;
+}
+
+footer .logoFooter {
+  width: 130px;
+  height: 24px;
+}
+
+@media (max-width: 576px) {
+  .registerHead {
+    text-align: left;
+    padding: 20px
+  }
+}
+
+
+@media (min-width: 576px) {
+  .main {
+
+  }
+
+}
+
+
+@media (min-width: 573px) and (max-width: 611px) {
+  .registerFormWrapper #startHour {
+    border-radius: 90px;
+    padding-left: 20px;
+  }
+
+  .registerFormWrapper #closeHour {
+    border-radius: 90px;
+    border-radius: 90px;
+  }
+}
+
+@media (min-width:576px) and (max-width: 998px) {
+  .registerHead #bobiCrew {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .taggedInput input:focus ~ #helpBox {
+    display: block;
+    width: 129px;
+    font-size: 0.625rem;
+    padding: 10px;
+    background-color: #eeeeee;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    transform: translate(150px);
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .textRegister {
+    width: 70%;
+  }
+}
+
+
+</style>

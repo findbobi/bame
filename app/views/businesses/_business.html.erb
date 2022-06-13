@@ -1,0 +1,40 @@
+<div class="call-sm-3 call-md-4 call-lg-6 py-3 py-sm-0">
+  <div class="card">
+    <% if Rails.env.development? && business.avatar.attached? %>
+      <img src="<%= url_for(business.avatar) %>" class="card-img-top img-fluid" alt="...">
+    <% else %>
+      <%= image_tag("avatar_green_bg.png", :alt => "avatar", :class => "card-img-top img-fluid") %>
+    <% end %>
+    <div class="card-body">
+      <ul class="star">
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <i class="bi bi-star-fill"></i>
+        <span class="r-num">(0)</span>
+      </ul>
+      <h5 class="card-title">
+        <%= business.name %> <br>
+        <%= business.owner_name %> <br>
+        <span class="card-text"><%= business.business_type&.name %> - N/A km</span>
+      </h5>
+      <div class="icon-1 social">
+        <ul class="icon">
+          <a href=<%= "tel:#{business.telephone}" %>><i class="bi bi-telephone"></i></a>
+          <a href=<%= "mailto:#{business.email}" %>><i class="bi bi-envelope"></i></a>
+          <a href=<%= business.website %> target="_blank"><i class="bi bi-globe"></i></a>
+          <a href="#"><i class="bi bi-arrow-90deg-right"></i></a>
+          <a href="#"><i class="bi bi-arrow-up-right"></i></a>
+        </ul>
+      </div>
+      <div class="chip-b">
+        <% business.tags_and_language_names&.each do |tag_name| %>
+          <div class="chip c-1">
+            <span class=""><%= tag_name %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

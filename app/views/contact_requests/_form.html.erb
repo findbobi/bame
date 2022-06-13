@@ -1,0 +1,109 @@
+<div class="main container-md mb-5">
+  <div class="row justify-content-center">
+    <!-- The Head - on mobile top larger on left -->
+    <div class="col-md-5 col-sm-4 registerHead">
+      <div class="row">
+        <div class="textRegister col-12">
+          <p>Contact us</p>
+        </div>
+        <div class="imgRegister col-12 order-first order-md-0 my-5 my-md-0">
+          <%= image_tag("Bobi_message.svg", :alt => "Bobis") %>
+        </div>
+      </div>
+    </div>
+
+    <!-- The main part on larger screen right side -->
+    <div class="col-md-7 col-sm-8 registerFormWrapper has-error">
+      <%= form_with(model: contact_request, class: "registerForm") do |form| %>
+
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.text_field :name, class: "form-control #{invalid_class?(:name)}", id: "contactName", required: "required" %>
+            <%= form.label :name, class: "ml-5" %>
+
+            <% if error_message(:name).present? %>
+              <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                <span class="help-block errorMessage"> <%= error_message(:name) %> </span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.text_field :email, class: "form-control #{invalid_class?(:email)}", id: "mailContact", required: "required" %>
+            <%= form.label :email, class: "ml-5" %>
+
+            <% if error_message(:email).present? %>
+              <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                <span class="help-block errorMessage"> <%= error_message(:email) %> </span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.text_field :subject, class: "form-control #{invalid_class?(:subject)}", id: "subjectContact", required: "required" %>
+            <%= form.label :subject, class: "ml-5" %>
+            <% if error_message(:subject).present? %>
+              <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                <span class="help-block errorMessage"> <%= error_message(:subject) %> </span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-floating mb-3">
+            <%= form.text_area :message, required: "required", class: "form-control rediusTextArea #{invalid_class?(:message)}", id: "exampleFormControlTextarea1", rows: "6", style: "height: 100%;" %>
+            <%= form.label :message, class: "ml-5" %>
+            <% if error_message(:message).present? %>
+              <div class="col-12 order-first order-md-0 my-5 my-md-0">
+                <%= image_tag("error_icon.svg", :alt => "error_icon") %>
+                <span class="help-block errorMessage"> <%= error_message(:message) %> </span>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row justify-content-end mt-3 mb-5 align-items-center">
+          <div class="col-auto">
+            <%= form.submit "Send", :class => 'btn btn-primary btn-small submitBtn' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<script>
+  document.body.style.backgroundColor ="#4B5DFF"
+  document.getElementById("nav-link-contact").classList.add('active')
+</script>
+
+<style media="screen">
+  .rediusTextArea {
+    border-radius: 16px;
+  }
+
+  .main {
+    margin-top: 50px;
+  }
+
+  body {
+    height: 100vh;
+  }
+
+  .errorMessage {
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .order-first {
+    padding-left: 20px;
+  }
+</style>

@@ -1,0 +1,63 @@
+var lawyers_image = "<%= asset_path('lawyers.jpeg') %>"
+var restaurants_image = "<%= asset_path('restaurants.jpeg') %>"
+var stays_image = "<%= asset_path('stays.jpeg') %>"
+var doctors_image = "<%= asset_path('doctors.jpeg') %>"
+var salons_image = "<%= asset_path('salons.jpeg') %>"
+var groceries_image = "<%= asset_path('groceries.jpeg') %>"
+
+var categoriesData = [
+  {
+    id:0,
+    name: 'Restaurants',
+    image:restaurants_image
+  },
+  {
+    id:1,
+    name: 'Stays',
+    image: stays_image
+  },
+  {
+    id:2,
+    name: 'Doctors',
+    image: doctors_image
+  },
+  {
+    id:3,
+    name: 'Beauty Salons',
+    image: salons_image
+  },
+  {
+    id:4,
+    name: 'Groceries',
+    image: groceries_image
+  },
+  {
+    id:5,
+    name: 'Lawyers',
+    image: lawyers_image
+  },
+
+]
+
+var printCategories = (category, catCount) => {
+  for (data in category) {
+    const categoryData = category[data]
+      document.querySelector('.category-row.row-'+catCount).innerHTML += `
+        <a class="category-card" href="/businesses?what=${categoryData.name}&tags=${categoryData.name}&languages=English" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 54.69%, rgba(0, 0, 0, 0.4) 100%), url('${categoryData.image}')">
+          <span class="category-card-text">${categoryData.name}</span>
+        </a>
+      `
+    }
+  }
+
+var setCategories = ( categories ) => {
+  let catCount = 0
+  while(categories.length){
+    catCount++
+    const catArrays = categories.splice(0,3)
+    document.querySelector('.home-category-list').innerHTML += `<div class="category-row row-${catCount}"></div>`
+    printCategories(catArrays, catCount)
+  }
+}
+
+setCategories(categoriesData)
